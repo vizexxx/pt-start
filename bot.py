@@ -4,7 +4,7 @@ from telegram import Update
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, ConversationHandler
 import pytz
 
-TOKEN = "7232133489:AAGkq7r2u20anE1NIDVK_O80_3oz2mmMc1Q"
+TOKEN = "TOKEN"
 
 logging.basicConfig(
     filename='logfile.txt', format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO

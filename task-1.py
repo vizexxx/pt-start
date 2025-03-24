@@ -214,7 +214,7 @@ async def get_apt_list(update: Update, context):
             package_name = ' '.join(context.args)
             result = execute_ssh_command(f"apt-cache show {package_name} || dpkg-query -s {package_name}")
 
-            if not result or "не установлен" in result.lower() or "не найден" or "ошибка" in result.lower():
+            if not result or "E" in result:
                 await update.message.reply_text(f"Пакет '{package_name}' не найден.")
                 return
 

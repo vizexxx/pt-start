@@ -1,10 +1,13 @@
 import logging
 import re
+
+from dotenv import load_dotenv
 from telegram import Update
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, ConversationHandler
 import pytz
+import os
 
-TOKEN = "7232133489:AAGkq7r2u20anE1NIDVK_O80_3oz2mmMc1Q"
+load_dotenv('data.env')
 
 logging.basicConfig(
     filename='logfile.txt', format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO
@@ -45,7 +48,7 @@ async def echo(update: Update, context):
     await update.message.reply_text(update.message.text)
 
 def main():
-    application = Application.builder().token(TOKEN).build()
+    application = Application.builder().token(os.getenv('TOKEN')).build()
 
     application.job_queue.scheduler.configure(timezone=pytz.UTC)
 

@@ -131,6 +131,7 @@ async def writingTableEmails(update: Update, context: CallbackContex):
         await update.message.reply_text('Введите ответ в запрашиваемом типе: yes/no.')
     else:
         if (content == 'no'):
+            await update.message.reply_text('Телефонные номера не будут записаны')
             return ConversationHandler.END
         else:
             emailList = context.user_data.get('emailList', [])
